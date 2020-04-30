@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>动物森友会鱼类价格查询</title>
+  <link href="assets/css/mystyle.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="fish-image">
+
+</div>
+
+<div id="fish-price">
+
+</div>
+
+
+</body>
+</html>
+
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+<script src="assets/js/axios.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+    var price_info;
+    axios.get('http://127.0.0.1:8000/get_data?name=fish_info')
+    .then(function (response) {
+        price_info=response.data.price;
+        image=response.data.image
+        document.getElementById('fish-image').innerHTML = image
+        document.getElementById('fish-price').innerHTML = "<p>价格：" + price_info + "铃钱</p>"
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+});
+
+
+</script>

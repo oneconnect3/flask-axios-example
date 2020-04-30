@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>动物森友会鱼类价格查询</title>
+</head>
+
+<body>
+<div class="container" id="app">
+  <h3 style="text-align:center">动物森友会鱼类价格查询</h3>
+
+  <div style="text-align:center">
+    <input id="search-word" type="text" οnkeydοwn="jump(event);" placeholder="">
+    <button class="btn btn-search" id="click-search" type="button" value="start"
+            onclick="jump()">搜&nbsp;&nbsp;&nbsp;&nbsp索
+    </button>
+
+  </div>
+
+</div>
+
+</body>
+</html>
+
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+<script src="assets/js/axios.min.js"></script>
+
+<script>
+function jump(){
+    var search_keyword=document.getElementById("search-word").value;
+    axios.post('http://127.0.0.1:8000/data_generate', {
+        search: search_keyword
+    })
+    .then(function (response) {
+        var status = response.data.status;
+        alert(status)
+        if (status == 'success') {
+            window.location.href = 'result.html'
+        } else {
+            alert("Error!")
+        }
+    })
+    .catch(function (error) {
+        alert("Error!");
+    });
+}
+
+</script>
+
