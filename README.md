@@ -144,7 +144,7 @@ if __name__ == '__main__':
 
 拖到浏览器中可以直接看到建好的组件了：
 
-![搜索](/img/search.png)
+![搜索](img/search.png)
 
 然后就要写用来发送和接收数据的 JavaScript 代码了！先把需要的 js 文件下载到本地，在 script 脚本头部调用，下面写将前端输入数据发送给后端的代码，也就是前面在 button 中设置的事件 jump()。这里的 "search-word" 即为输入框组件的 id，通过 document.getElementById() 取出输入框中传入的字符串，通过 Axios 发送给后端：
 
@@ -236,7 +236,6 @@ python main.py
 
 然后在本地浏览器打开 index.html，如输入关键词「Frog」进行查询，得到结果如下：
 
-![结果](/img/result
-.png)
+![结果](img/result.png)
 
 这个例子仅用来抛砖引玉，大家可以用 HighCharts、AntV 等图表库进行形式更多元的数据可视化展示。
